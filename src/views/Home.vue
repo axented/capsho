@@ -86,7 +86,7 @@
           <span class="font-body py-6">Save time, stop get inspired</span>
           <div>
             <button class="rounded-full bg-primaryDark text-white py-4 px-4">
-              <span>Start your free trial</span>
+              <span class="font-body font-bold">Start your free trial</span>
             </button>
           </div>
         </div>
