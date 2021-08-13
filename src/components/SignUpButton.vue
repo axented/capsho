@@ -1,9 +1,9 @@
 <template>
-  <div class="py-4 bg-offWhite px-4">
-    <div class="text-center py-6 mx-auto">
+  <div class="py-8 bg-offWhite px-4">
+    <div class="text-center py-8 mx-auto">
       <h1 class="text-5xl font-heading">Sign up to take a live Webclass!</h1>
     </div>
-    <div class="pb-4">
+    <div class="pb-8">
       <button class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full">Sign up for free!</button>
     </div>
   </div>

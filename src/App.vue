@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- Navbar -->
-    <nav v-if="!['Sign In'].includes($route.name)" class="flex flex-row items-center">
+    <!-- Navbar Desktop -->
+    <nav v-if="!['Sign In'].includes($route.name)" class="sm:flex flex-row items-center hidden">
       <!-- Info buttons -->
       <div class="flex flex-1 flex-row flex-wrap justify-start">
         <div class="lg:pl-14">
@@ -36,6 +36,15 @@
             </div>
           </button>
         </div>
+      </div>
+    </nav>
+    <!-- Navbar Mobile -->
+    <nav v-if="!['Sign In'].includes($route.name)" class="flex flex-col items-center sm:hidden">
+      <!-- Logo -->
+      <div class="py-4">
+        <router-link to="/">
+          <img class="px-10 mx-auto h-10" src="./assets/logo-purple.png" />
+        </router-link>
       </div>
     </nav>
     <!-- Content -->

@@ -4,12 +4,14 @@
     <div class="px-4">  
       <span class="font-heading text-5xl">Choose your plan</span>
     </div>
-    <div class="flex flex-col justify-center sm:flex-row pt-10 px-6">
-      <div class="flex flex-col w-full sm:w-1/3 md:w-1/4 bg-white shadow rounded-2xl py-10 px-6 mx-2 mb-2 sm:mb-0">
-        <span class="font-body text-left font-body pb-6 text-2xl">AI can help you out <span class="font-semibold">with your copies and ideas</span></span>
-        <div class="flex flex-row pt-6 justify-center align-center">
-          <img class="pr-6 -mb-1" src="../assets/icons/video.svg" />
-          <button class="font-body text-primaryDark">Watch demo</button>
+    <div class="flex flex-col justify-center sm:flex-row py-6 px-6">
+      <div class="flex flex-wrap justify-center items-center w-full sm:w-1/3 md:w-1/4 bg-white shadow rounded-2xl py-10 px-6 mx-2 mb-2 sm:mb-0">
+        <span class="font-body text-left font-body pb-6 px-6 text-2xl">AI can help you out <span class="font-semibold">with your copies and ideas</span></span>
+        <div class="pt-6 justify-center align-center">
+          <button class="flex flex-row items-center font-body hover:bg-backgroundGradient py-4 px-4 rounded-full">
+            <img class="pr-6 -mb-1" src="../assets/icons/video.svg" />
+            <span class="font-body font-bold text-primaryDark">Watch demo</span>
+          </button>
         </div>
       </div>
       <div class="flex flex-col w-full sm:w-2/3 md:w-2/4 bg-white shadow rounded-2xl py-10 px-6 mx-2 mt-2 sm:mt-0">

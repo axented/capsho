@@ -2,8 +2,8 @@
   <div>
     <!-- Header -->
     <div class="pt-8 bg-gradient-to-r from-backgroundGradient to-white">
-      <div class="text-center max-w-md py-6 mx-auto">
-        <h1 class="font-heading text-5xl">Beautiful captions to conquer your user's heart</h1>
+      <div class="text-center py-6 mx-auto px-4">
+        <span class="font-heading sm:leading-normal text-5xl">Beautiful captions <br> to conquer <br> your user's heart</span>
       </div>
       <div class="pb-4">
         <button class="font-body font-bold bg-secondaryDark text-white py-2 px-4 mx-2 rounded-full">Get Started</button>
@@ -78,17 +78,26 @@
     <!-- Pricing -->
     <PricingRates />
     <!-- Ready to write -->
-    <div class="py-10 px-10 bg-primaryLight">
-      <div class="relative flex flex-col md:flex-row rounded-xl bg-white lg:w-4/5 mx-auto">
-        <div class="flex flex-col w-full text-left pb-8 px-10">
-          <span class="font-bodyLexend py-8 text-4xl">Ready to write?</span>
-          <span class="font-body pb-4 w-40 lg:w-full">Save time, stop get inspired</span>
-          <button class="w-48 bg-primaryDark text-white rounded-full py-4">
-            <span class="font-body font-bold">Start your free trial</span>
-          </button>
+    <div class="py-10 px-4 bg-primaryLight">
+      <div class="flex flex-col lg:flex-row lg:justify-between bg-white w-5/6 lg:w-3/4 lg:h-72 2xl:w-2/3 xl:h-64 rounded-xl mx-auto">
+        <!-- Text + buttons -->
+        <div class="flex flex-col lg:text-left lg:w-1/3 py-10 px-10">
+          <span class="font-bodyLexend text-4xl">Ready to write?</span>
+          <span class="font-body py-6">Save time, stop get inspired</span>
+          <div>
+            <button class="rounded-full bg-primaryDark text-white py-4 px-4">
+              <span>Start your free trial</span>
+            </button>
+          </div>
         </div>
-        <img src="../assets/icons/arrow.svg" class="absolute inset-x-0 top-0" />
-        <img src="../assets/woman.png" class="absolute rounded-xl h-full bottom-0 right-0" />
+        <!-- Arrow -->
+        <div class="hidden lg:block w-1/3">
+          <img src="../assets/curvy-arrow.svg" class="mx-auto" />
+        </div>
+        <!-- Photo -->
+        <div class="hidden lg:flex justify-end w-1/3">
+          <img src="../assets/woman.png" class="rounded-xl h-auto" />
+        </div>
       </div>
     </div>
   </div>
