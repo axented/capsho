@@ -7,8 +7,13 @@
       <div class="text-center py-6 mx-auto px-4">
         <span class="font-heading sm:leading-normal text-5xl">Beautiful captions <br> to conquer <br> your user's heart</span>
       </div>
-      <div class="pb-4">
-        <button class="font-body font-bold bg-secondaryDark text-white py-2 px-4 mx-2 rounded-full">Get Started</button>
+      <div class="pb-4">  
+        <button
+          @click="$router.push('/sign-in')"
+          class="font-body font-bold bg-secondaryDark text-white py-2 px-4 mx-2 rounded-full"
+        >
+          Get Started
+        </button>
       </div>
       <div class="flex pt-4 w-full">
         <img src="../assets/iphone.png"/>
@@ -83,12 +88,15 @@
     <div class="py-10 px-4 bg-primaryLight">
       <div class="flex flex-col lg:flex-row lg:justify-between bg-white w-5/6 lg:w-3/4 lg:h-72 2xl:w-2/3 xl:h-64 rounded-xl mx-auto">
         <!-- Text + buttons -->
-        <div class="flex flex-col lg:text-left lg:w-1/3 py-10 px-10">
+        <div class="flex flex-col lg:text-left lg:w-1/3 py-10 pl-10">
           <span class="font-bodyLexend text-4xl">Ready to write?</span>
           <span class="font-body py-6">Save time, stop get inspired</span>
           <div>
-            <button class="rounded-full bg-primaryDark text-white py-4 px-4">
-              <span class="font-body font-bold">Start your free trial</span>
+            <button
+              @click="$router.push('/sign-in')" 
+              class="rounded-full bg-primaryDark font-body font-bold text-white py-4 px-4 -mt-3"
+            >
+              Start your free trial
             </button>
           </div>
         </div>

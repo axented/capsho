@@ -4,7 +4,12 @@
       <h1 class="text-5xl font-heading">Sign up to take a live Webclass!</h1>
     </div>
     <div class="pb-8">
-      <button class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full">Sign up for free!</button>
+      <button
+        @click="$router.push('/sign-in')"
+        class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full"
+      >
+        Sign up for free!
+      </button>
     </div>
   </div>
 </template>

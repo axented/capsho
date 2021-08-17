@@ -9,9 +9,11 @@
       <span class="text-left font-heading text-3xl">Welcome back!</span>
       <div class="flex flex-row py-4"> 
         <span class="text-left font-formText pr-1">New here?</span>
-        <button>  
-          <span class="text-primaryDark font-formText">Create a free account</span>
-        </button>
+        <router-link to="/register">
+          <button class="text-primaryDark font-formText">
+            Create a free account
+          </button>
+        </router-link>
       </div>
       <button
         class="rounded-full shadow my-4"
@@ -36,37 +38,35 @@
         <span class="font-body">or</span>
         <div class="border-t border-formLabel w-1/3 mt-3" />
       </div>
-      <form>
-        <div class="py-2">
-          <label class="block text-left text-formLabel font-formText pb-2" for="email">Email</label>
-          <input v-model="email" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="email" placeholder="user@example.com">
-        </div>
-        <div class="py-2">
-          <label class="block text-left text-formLabel font-formText pb-2" for="password">Password</label>
-          <input v-model="password" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="password" placeholder="*********">
-        </div>
-        <div class="flex justify-start py-2">
-          <label class="block text-formLabel font-bold">
-            <input type="checkbox" class="rounded text-primaryDark border-primaryLight">
-            <span class="text-sm">
-              Remember me
-            </span>
-          </label>
-        </div>
-        <div class="pt-6">
-          <button 
-            @click="logInEmail()"
-            class="flex flex-row justify-center w-full bg-primaryDark text-white font-bold py-4 px-4 rounded-full"
-          >
-            <span class="px-4">Log in</span>
-          </button>
-        </div>
-        <div class="pt-6">
-          <button class="text-gray-400">
-            Forgot password
-          </button>
-        </div>
-      </form>
+      <div class="py-2">
+        <label class="block text-left text-formLabel font-formText pb-2" for="email">Email</label>
+        <input v-model="email" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="email" placeholder="user@example.com">
+      </div>
+      <div class="py-2">
+        <label class="block text-left text-formLabel font-formText pb-2" for="password">Password</label>
+        <input v-model="password" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="password" placeholder="*********">
+      </div>
+      <div class="flex justify-start py-2">
+        <label class="block text-formLabel font-bold">
+          <input type="checkbox" class="rounded text-primaryDark border-primaryLight">
+          <span class="text-sm">
+            Remember me
+          </span>
+        </label>
+      </div>
+      <div class="pt-6">
+        <button 
+          @click="logInEmail()"
+          class="flex flex-row justify-center w-full bg-primaryDark text-white font-bold py-4 px-4 rounded-full"
+        >
+          <span class="px-4">Log in</span>
+        </button>
+      </div>
+      <div class="pt-6">
+        <button class="text-gray-400">
+          Forgot password
+        </button>
+      </div>
     </div>
   </div>
 </template>

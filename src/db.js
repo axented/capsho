@@ -24,10 +24,10 @@ export function signInWithFacebook() {
 export function registerEmail(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password).then((res) => {
     console.log(res.user);
+    router.push('/post-sign-in');
   }).catch((err) => {
     console.log(err);
   })
-  router.push('/post-sign-in');
 }
 
 export function signInWithEmail(email, password) {

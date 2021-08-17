@@ -39,7 +39,10 @@
           <img src="../assets/icons/check.svg" width="20" height="20" />
           <span class="font-body px-4 py-2">Premium community</span>
         </div>
-        <button class="rounded-full bg-secondaryDark py-4 mt-6">
+        <button
+          @click="$router.push('/sign-in')"
+          class="rounded-full bg-secondaryDark py-4 mt-6"
+        >
           <span class="font-body font-bold text-white font-body">Get Started</span>
         </button>
       </div>
