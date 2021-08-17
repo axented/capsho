@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavbarDesktop />
+    <NavbarMobile />
     <!-- Header -->
     <div class="pt-8 bg-gradient-to-r from-backgroundGradient to-white">
       <div class="text-center py-6 mx-auto px-4">
@@ -100,10 +102,14 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import NavbarDesktop from '../components/NavbarDesktop.vue'
+import NavbarMobile from '../components/NavbarMobile.vue'
+import Footer from '../components/Footer.vue'
 import PricingRates from '../components/PricingRates.vue'
 import SignUpButton from '../components/SignUpButton.vue'
 
@@ -111,7 +117,10 @@ export default {
   name: 'Home',
   components: {
     PricingRates,
-    SignUpButton
+    SignUpButton,
+    NavbarDesktop,
+    NavbarMobile,
+    Footer
   }
 }
 </script>

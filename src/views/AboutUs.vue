@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavbarDesktop />
+    <NavbarMobile />
     <!-- Header -->
     <div class="flex flex-col bg-gradient-to-r from-backgroundGradient to-white py-10">
       <span class="font-heading text-5xl">About Us</span>
@@ -72,11 +74,21 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import NavbarDesktop from '../components/NavbarDesktop.vue'
+import NavbarMobile from '../components/NavbarMobile.vue'
+import Footer from '../components/Footer.vue'
+
 export default {
-  name: 'About Us'
+  name: 'About Us',
+  components: {
+    NavbarMobile,
+    NavbarDesktop,
+    Footer
+  }
 }
 </script>

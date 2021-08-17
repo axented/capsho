@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavbarDesktop />
+    <NavbarMobile />
     <PricingRates />
     <!-- Core features -->
     <div class="flex flex-col py-10 px-8">
@@ -19,10 +21,14 @@
       </div>
     </div>
     <SignUpButton />
+    <Footer />
   </div>
 </template>
 
 <script>
+import NavbarDesktop from '../components/NavbarDesktop.vue'
+import NavbarMobile from '../components/NavbarMobile.vue'
+import Footer from '../components/Footer.vue'
 import PricingRates from '../components/PricingRates.vue'
 import SignUpButton from '../components/SignUpButton.vue'
 
@@ -30,7 +36,10 @@ export default {
   name: 'Pricing',
   components: {
     PricingRates,
-    SignUpButton
+    SignUpButton,
+    NavbarMobile,
+    NavbarDesktop,
+    Footer
   },
   data: () => ({
     coreFeatures: [
