@@ -13,13 +13,19 @@
           <span class="text-primaryDark font-formText">Create a free account</span>
         </button>
       </div>
-      <button class="rounded-full shadow my-4">
+      <button
+        class="rounded-full shadow my-4"
+        @click="signInGoogle()"
+      >
         <div class="flex flex-row justify-center py-4">
           <img src="../assets/socials/google.png" class="w-6 h-6" />
           <span class="font-number font-medium pl-4">Sign in with Google</span>
         </div>
       </button>
-      <button class="rounded-full shadow my-4">
+      <button
+        class="rounded-full shadow my-4"
+        @click="signInFacebook()"
+      >
         <div class="flex flex-row justify-center py-4">
           <img src="../assets/socials/facebook.png" class="w-6 h-6" />
           <span class="font-number font-medium pl-4">Sign in with Facebook</span>
@@ -33,11 +39,11 @@
       <form>
         <div class="py-2">
           <label class="block text-left text-formLabel font-formText pb-2" for="email">Email</label>
-          <input class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="user@example.com">
+          <input v-model="email" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="email" placeholder="user@example.com">
         </div>
         <div class="py-2">
           <label class="block text-left text-formLabel font-formText pb-2" for="password">Password</label>
-          <input class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" id="email" type="password" placeholder="*********">
+          <input v-model="password" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="password" placeholder="*********">
         </div>
         <div class="flex justify-start py-2">
           <label class="block text-formLabel font-bold">
@@ -48,8 +54,11 @@
           </label>
         </div>
         <div class="pt-6">
-          <button class="w-full bg-primaryDark text-white font-bold py-4 px-4 rounded-full">
-            Log In
+          <button 
+            @click="logInEmail()"
+            class="flex flex-row justify-center w-full bg-primaryDark text-white font-bold py-4 px-4 rounded-full"
+          >
+            <span class="px-4">Log in</span>
           </button>
         </div>
         <div class="pt-6">
@@ -63,7 +72,26 @@
 </template>
 
 <script>
+import { signInWithFacebook, signInWithGoogle, signInWithEmail } from '../db'
+
 export default {
-  name: 'Sign In'
+  name: 'Sign In',
+
+  data: () => ({
+    email: '',
+    password: ''
+  }),
+
+  methods: {
+    logInEmail() {
+      signInWithEmail(this.email, this.password);
+    },
+    signInGoogle() {
+      signInWithGoogle();
+    },
+    signInFacebook() {
+      signInWithFacebook();
+    }
+  }
 }
 </script>
