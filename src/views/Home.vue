@@ -88,7 +88,7 @@
     <div class="py-10 px-4 bg-primaryLight">
       <div class="flex flex-col lg:flex-row lg:justify-between bg-white w-5/6 lg:w-3/4 lg:h-72 2xl:w-2/3 xl:h-64 rounded-xl mx-auto">
         <!-- Text + buttons -->
-        <div class="flex flex-col lg:text-left lg:w-1/3 py-10 pl-10">
+        <div class="flex flex-col lg:text-left lg:w-1/3 py-10 px-5">
           <span class="font-bodyLexend text-4xl">Ready to write?</span>
           <span class="font-body py-6">Save time, stop get inspired</span>
           <div>

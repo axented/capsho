@@ -24,15 +24,17 @@
           <span class="font-number font-medium pl-4">Sign in with Google</span>
         </div>
       </button>
+      <!-- 
       <button
-        class="rounded-full shadow my-4"
+        disabled
+        class="rounded-full shadow my-4 disabled:opacity-25 disabled:cursor-not-allowed"
         @click="signInFacebook()"
       >
         <div class="flex flex-row justify-center py-4">
           <img src="../assets/socials/facebook.png" class="w-6 h-6" />
           <span class="font-number font-medium pl-4">Sign in with Facebook</span>
         </div>
-      </button>
+      </button> -->
       <div class="flex flex-row justify-between py-4">
         <div class="border-t border-formLabel w-1/3 mt-3" />
         <span class="font-body">or</span>
@@ -53,6 +55,9 @@
             Remember me
           </span>
         </label>
+      </div>
+      <div v-if="$store.state.loginError">
+        <span class="text-red-500 font-formText">{{ $store.state.loginError }}</span>
       </div>
       <div class="pt-6">
         <button 

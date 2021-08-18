@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <span class="text-left font-heading text-3xl py-4">Register your account</span>
-      <form @submit="checkForm">
+      <div>
         <div class="py-2">
           <label class="block text-left text-formLabel font-formText pb-2" for="email">Email</label>
           <input v-model="email" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline" type="email" placeholder="user@example.com">
@@ -25,7 +25,7 @@
             <span class="px-4">Register</span>
           </button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
