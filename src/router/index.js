@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import store from '../store'
+import { publicPath } from '../../vue.config'
 import Home from '../views/Home.vue'
 import AboutUs from '../views/AboutUs.vue'
 import ContactUs from '../views/ContactUs.vue'
@@ -64,7 +65,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(publicPath),
   routes,
   scrollBehavior() {
     return { left: 0, top: 0 }
