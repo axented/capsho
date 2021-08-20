@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <nav class="sm:flex flex-row items-center hidden">
       <!-- Info buttons -->
       <div class="flex flex-1 flex-row flex-wrap justify-start">
-        <div class="lg:pl-14">
+        <div>
           <button
             @click="$router.push('/about')"
             class="font-navbar hover:bg-offWhite rounded-full py-2 px-4"
@@ -31,11 +31,11 @@
         </router-link>
       </div>
       <!-- Sign in / Sign up -->
-      <div class="flex flex-1 flex-row flex-wrap justify-end py-2">
-        <div class="lg:pr-12">
+      <div v-if="!$store.state.user.loggedIn" class="flex flex-1 flex-row flex-wrap items-center justify-end py-2">
+        <div>
           <button
             @click="$router.push('/sign-in')"
-            class="font-body font-bold bg-transparent text-primaryDark py-2 px-4 mx-2 border-2 border-primaryDark rounded-full"
+            class="font-body font-bold bg-transparent text-primaryDark py-2 px-4 mr-1 border-2 border-primaryDark rounded-full"
           >
             Sign in
           </button>  
@@ -45,7 +45,7 @@
           >
             Sign up
           </button>
-          <button class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 mx-2">
+          <button class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-1">
             <div class="flex flex-row py-1"> 
               <span>Help</span>
               <img class="mx-2" src="../assets/icons/question.svg" width="20" height="20" />
@@ -53,6 +53,20 @@
           </button>
         </div>
       </div>
+      <div v-else class="flex flex-1 flex-row flex-wrap items-center justify-end py-2">
+        <button
+            @click="$router.push('/post-sign-in')"
+            class="font-body font-bold bg-primaryDark text-white py-2 px-4 mx-2 border-2 border-primaryDark rounded-full"
+          >
+            Dashboard
+          </button>
+        <button class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 mx-2">
+          <div class="flex flex-row py-1"> 
+            <span>Help</span>
+            <img class="mx-2" src="../assets/icons/question.svg" width="20" height="20" />
+          </div>
+        </button>
+      </div> 
     </nav>
   </div>
 </template>
