@@ -8,6 +8,7 @@ export default createStore({
         data: null
       },
       loginError: null,
+      verifyEmailError: null
     }
   },
   getters: {
@@ -16,6 +17,9 @@ export default createStore({
     },
     loginError(state) {
       return state.loginError
+    },
+    verifyEmailError(state) {
+      return state.verifyEmailError
     }
   },
   mutations: {
@@ -28,6 +32,9 @@ export default createStore({
     },
     setLoginError(state, value) {
       state.loginError = value;
+    },
+    setVerifyEmailError(state, value) {
+      state.verifyEmailError = value;
     }
   },
   actions: {
@@ -37,7 +44,8 @@ export default createStore({
         commit('setUser', {
           displayName: user.displayName,
           email: user.email,
-          photoUrl: user.photoURL
+          photoUrl: user.photoURL,
+          emailVerified: user.emailVerified
         });
       } else {
         commit('setUser', null);

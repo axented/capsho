@@ -44,6 +44,15 @@ export function signInWithEmail(email, password) {
   })
 }
 
+export function verifyEmail() {
+  firebase.auth().currentUser.sendEmailVerification().then(() => {
+    store.commit('setVerifyEmailError', 'Email Sent, please log in again.');
+  }).catch((err) => {
+    console.log(err);
+    store.commit('setVerifyEmailError', err.message);
+  })
+}
+
 export function logOut() {
   firebase.auth().signOut().then(() => {
     console.log('Signed Out');
