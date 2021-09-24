@@ -12,7 +12,7 @@
       <span class="text-4xl text-primaryDark font-heading">Page not found</span>
       <div v-if="$store.state.user.loggedIn" class="pt-10">
         <button
-          @click="$router.push('/post-sign-in')"
+          @click="$router.push('/dashboard')"
           class="font-body font-bold bg-primaryDark text-white py-2 px-4 mx-2 rounded-full"
         >
           Return

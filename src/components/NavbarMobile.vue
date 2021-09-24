@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <nav class="flex flex-col items-center sm:hidden">
       <div class="py-4">
         <router-link to="/">

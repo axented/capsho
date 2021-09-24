@@ -3,22 +3,38 @@
     <NavbarDesktop />
     <NavbarMobile />
     <!-- Header -->
-    <div class="pt-8 bg-gradient-to-r from-backgroundGradient to-white">
-      <div class="container">
-        <div class="text-center py-6 mx-auto">
-          <span class="font-heading sm:leading-normal text-5xl">Beautiful captions <br> to conquer <br> your user's heart</span>
+    <div class="relative flex pt-8 bg-gradient-to-r from-backgroundGradient to-white">
+      <div class="absolute inset-x-0 bottom-0 w-full z-0">
+        <img src="../assets/bg-yellow.png" class="w-full" />
+      </div>
+      <div class="container z-10">
+        <div class="text-center py-6 mb-6 mx-auto flex flex-col relative">
+          <span class="font-heading sm:leading-normal text-5xl pb-8">From blank pages to</span>
+          <div class="absolute bottom-0 inset-x-0">  
+            <span class="w1 opacity-0 font-heading text-5xl">captions</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0">
+            <span class="w2 opacity-0 font-heading text-5xl">emails</span>
+          </div>
         </div>
-        <div class="pb-4">  
+        <div class="text-center pb-6 mx-auto">
+          <span class="font-number">Turn your stories into a bank of captions & emails that connect & convert</span>
+        </div>
+        <div class="pb-4">
+          <!--
           <button
             @click="$router.push('/sign-in')"
             class="font-body font-bold bg-secondaryDark text-white py-2 px-4 mx-2 rounded-full"
           >
             Get Started
+          </button> -->
+          <button @click="$router.push('/sign-in')" class="font-body font-bold bg-secondaryDark text-white py-2 px-4 mx-2 rounded-full">
+            Get Started
           </button>
         </div>
-      </div>
-      <div class="flex pt-4 w-full">
-        <img src="../assets/iphone.png"/>
+        <div class="flex justify-center pt-10">
+          <img src="../assets/iphone-x-2.png" class="rounded-t-3xl w-2/3 md:w-1/2 lg:w-1/5" />
+        </div>
       </div>
     </div>
     <!-- How it Works -->
@@ -30,24 +46,24 @@
         <div class="flex flex-col md:flex-row py-8 justify-between">
           <div class="flex flex-col w-full md:w-1/6">
             <span class="text-8xl font-number font-extrabold -mb-8 text-gray-100">1</span>
-            <span class="text-xl font-number font-bold">Define a tone of voice</span>
-            <span class="font-number w-40 mx-auto">Turn your idea from concept to MVP</span>
+            <span class="text-xl font-number font-medium">Go from blank page to ideas</span>
+            <span class="font-number w-40 pt-4 mx-auto">Get inspired with limitless story ideas - whether it's a memory, customer result or product launch</span>
           </div>
           <div class="flex w-full py-8 md:w-1/6">
             <img class="mx-auto" src="../assets/arrow.svg" />
           </div>
           <div class="flex flex-col w-full md:w-1/6">
             <span class="text-8xl font-number font-extrabold -mb-8 text-opacity-10 text-primaryDark">2</span>
-            <span class="text-xl font-number font-bold text-primaryDark">Choose content themes</span>
-            <span class="font-number w-40 mx-auto">Turn your idea from concept to MVP</span>
+            <span class="text-xl font-number text-primaryDark font-medium">Go from ideas to your story told</span>
+            <span class="font-number w-40 pt-4 mx-auto">Get your stories out of your head and into a short narrative using our quick & intuitive storytelling process</span>
           </div>
           <div class="flex w-full py-8 md:w-1/6">
             <img class="mx-auto" src="../assets/arrow.svg" />
           </div>
           <div class="flex flex-col w-full md:w-1/6">
             <span class="text-8xl font-number font-extrabold -mb-8 text-gray-100">3</span>
-            <span class="text-xl font-number font-bold">Select Storytelling</span>
-            <span class="font-number w-40 mx-auto">Turn your idea from concept to MVP</span>
+            <span class="text-xl font-number font-medium">Go from story to captions and emails</span>
+            <span class="font-number w-40 pt-4 mx-auto">et your captions & emails that you can copy, download, add your flavor to and schedule. The best part? We've got hundreds stored for you to keep coming back to!</span>
           </div>
         </div>
       </div>
@@ -57,63 +73,69 @@
     <!-- Discover -->
     <div class="py-4 bg-gradient-to-r from-yellowBackgroundStart to-yellowBackgroundEnd">
       <div class="text-center max-w-2xl py-6 mx-auto">
-        <h1 class="text-5xl font-heading">Discover what you can create with Capsho</h1>
+        <span class="text-5xl font-heading">Discover what you can create with Capsho</span>
       </div>
       <div class="container">
-        <div class="flex flex-col sm:flex-row justify-between">
+        <div class="flex flex-col md:flex-row justify-between">
           <!-- Spotlights -->
-          <div class="flex rounded-lg w-full sm:w-1/4 lg:w-1/3 bg-white py-6 px-6 sm:mr-4 my-4">
+          <div class="flex rounded-lg w-full md:w-1/3 bg-white py-6 px-6 md:mr-4 my-4">
             <div class="flex flex-col">
               <img src="../assets/icons/stars.svg" width="20" height="20" />
-              <span class="text-left font-formText font-bold pt-10">Product spotlights</span>
-              <span class="text-left pt-4">Add multiple links in Instagram instead of just one.</span>
+              <span class="text-left font-formText text-xl font-bold pt-10">Hundreds of compelling captions designed for viralocity</span>
+              <span class="text-left font-bodyLexend pt-4 leading-loose">Finally get yourself seen on Instagram! Engage without feeling cringe-y and promote without feeling sales-y</span>
             </div>
           </div>
           <!-- Campaign -->
-          <div class="flex rounded-lg w-full sm:w-1/4 lg:w-1/3 bg-white py-6 px-6 sm:mx-2 my-4">
+          <div class="flex rounded-lg w-full md:w-1/3 bg-white py-6 px-6 md:mx-2 my-4">
             <div class="flex flex-col">
               <img src="../assets/icons/bullets.svg" width="20" height="20" />
-              <span class="text-left font-formText font-bold pt-10">Campaign & Promos</span>
-              <span class="text-left pt-4">Allow your clients to connect with you with one click.</span>
+              <span class="text-left font-formText text-xl font-bold pt-10">Engaging emails people will actually read</span>
+              <span class="text-left font-bodyLexend pt-4 leading-loose">Say Goodbye to blank page syndrome. Say Hello to a personalized bank of emails</span>
             </div>
           </div>
           <!-- Storytelling -->
-          <div class="flex rounded-lg w-full sm:w-1/4 lg:w-1/3 bg-white py-6 px-6 sm:ml-4 my-4">
+          <div class="flex rounded-lg w-full md:w-1/3 bg-white py-6 px-6 md:ml-4 my-4">
             <div class="flex flex-col">
               <img src="../assets/icons/bullhorn.svg" width="20" height="20" />
-              <span class="text-left font-formText font-bold pt-10">Storytelling tools</span>
-              <span class="text-left pt-4">Capture leads and grow your business with them.</span>
+              <span class="text-left font-formText text-xl font-bold pt-10">A dynamic 9-Grid for instagram with captions AND recommended visuals</span>
+              <span class="text-left font-bodyLexend pt-4 leading-loose">View and copy captions (Peanut Butter) and get our recommended creatives (Jelly) for your Instagram feed.</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Pricing -->
-    <PricingRates />
+    <PricingRates title="Choose your plan" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" />
     <!-- Ready to write -->
     <div class="py-10 bg-primaryLight">
       <div class="container">
-        <div class="flex flex-col lg:flex-row lg:justify-between bg-white w-full lg:h-72 xl:h-64 rounded-xl mx-auto">
+        <div class="flex flex-col relative lg:flex-row justify-center lg:justify-start bg-white w-full lg:h-full rounded-xl mx-auto items-center">
           <!-- Text + buttons -->
-          <div class="flex flex-col lg:text-left lg:w-1/3 py-10 px-5 lg:pl-10">
-            <span class="font-bodyLexend text-4xl">Ready to write?</span>
-            <span class="font-body py-6">Save time, stop get inspired</span>
-            <div>
+          <div class="flex flex-col lg:text-left lg:w-1/3 h-full py-10 px-5 lg:pl-10">
+            <span class="font-heading text-4xl">Ready to create your own bank of captions and emails?</span>
+            <span class="font-body py-6">Join our free webclass to see Capsho in action!</span>
+            <div class="pt-6">
+              <!--
               <button
                 @click="$router.push('/sign-in')" 
                 class="rounded-full bg-primaryDark font-body font-bold text-white py-4 px-4 -mt-3"
               >
                 Start your free trial
-              </button>
+              </button> -->
+              <a href="https://thegrowthbossunlocked.com/register50606922" target="_blank">
+                <button class="rounded-full bg-primaryDark font-body font-bold text-white py-4 px-4 -mt-3">
+                  Sign up for our free Webclass
+                </button>
+              </a>
             </div>
           </div>
           <!-- Arrow -->
-          <div class="hidden lg:block w-1/3">
-            <img src="../assets/curvy-arrow.svg" class="mx-auto" />
+          <div class="flex hidden lg:block w-1/3">
+            <img src="../assets/curvy-arrow.svg" class="mt-10" style="transform: rotate(-20deg) scaleX(-1)" />
           </div>
           <!-- Photo -->
-          <div class="hidden lg:flex justify-end w-1/3">
-            <img src="../assets/woman.png" class="rounded-xl h-auto" />
+          <div class="hidden absolute right-0 lg:flex justify-end h-full w-1/3">
+            <img src="../assets/woman.jpg" class="rounded-r-xl h-full" />
           </div>
         </div>
       </div>
@@ -137,6 +159,44 @@ export default {
     NavbarDesktop,
     NavbarMobile,
     Footer
-  }
+  },
+  data: () => ({
+    test: null
+  })
 }
 </script>
+
+<style scoped>
+.w1 {
+  animation: w1anim 10s infinite;
+}
+
+.w2 {
+  animation: w2anim 10s infinite;
+}
+
+@keyframes w1anim {
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 1;
+  }
+  50% {
+    opacity:0;
+  }
+}
+
+
+@keyframes w2anim {
+  50%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+</style>

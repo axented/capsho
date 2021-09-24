@@ -58,8 +58,8 @@
             </span>
           </label>
         </div>
-        <div v-if="$store.state.loginError">
-          <span class="text-red-500 font-formText">{{ $store.state.loginError }}</span>
+        <div v-if="$store.getters.loginError">
+          <span class="text-red-500 font-formText">{{ $store.getters.loginError }}</span>
         </div>
         <div class="pt-6">
           <button 
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { signInWithFacebook, signInWithGoogle, signInWithEmail } from '../db'
+import { signInWithGoogle, signInWithEmail } from '../db'
 
 export default {
   name: 'Sign In',
@@ -98,8 +98,11 @@ export default {
       signInWithGoogle();
     },
     signInFacebook() {
-      signInWithFacebook();
+      //signInWithFacebook();
     }
+  },
+  mounted() {
+    this.$store.commit('setVerifyEmailError', '')
   }
 }
 </script>

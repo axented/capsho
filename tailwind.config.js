@@ -16,7 +16,8 @@ module.exports = {
         offWhite: '#FCFCFC',
         yellowBackgroundStart: '#FFE7C2',
         yellowBackgroundEnd: '#FFDDA7',
-        formLabel: '#A0A3BD'
+        formLabel: '#A0A3BD',
+        socialBG: '#14142B'
       },
       fontFamily: {
         heading: ['"Source Serif Pro"'],
@@ -24,15 +25,26 @@ module.exports = {
         number: ['"Inter"'],
         navbar: ['"DM Sans"'],
         bodyLexend: ['"Lexend Deca"'],
-        formText: ['"Poppins"']
+        formText: ['"Poppins"'],
+        themes: ['"Barlow"']
       },
+      width: {
+        iphoneWidth: '304px',
+        ig: '100px',
+      },
+      height: {
+        iphoneHeight: '720px',
+        ig: '100px'
+      }
     },
   },
   variants: {
     extend: {
       opacity: ['disabled'],
-      cursor: ['disabled']
-    },
+      cursor: ['disabled'],
+      text: ['disabled'],
+      fontWeight: ['hover', 'focus']
+    }
   },
   plugins: [
     require('@tailwindcss/forms')
