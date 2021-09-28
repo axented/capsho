@@ -9,9 +9,14 @@
       </div>
       <!-- Sign in / Sign up -->
       <div class="flex flex-1 flex-row flex-wrap items-center justify-end py-2">
+        <UserIcon class="h-10" />
         <div class="static">
-          <UserIcon @click="dropdown = !dropdown" class="h-10" />
-          <!-- <img :src="usrPhoto" @click="dropdown = !dropdown" class="h-10 rounded-full" /> -->
+          <button
+            @click="dropdown = !dropdown"
+            class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-3"
+          >
+            <img src="../assets/icons/more.svg" width="20" height="20" />
+          </button>
           <div v-if="dropdown" class="absolute flex flex-col bg-white border border-primaryLight shadow rounded-2xl mt-2">
             <div class="px-4 py-2 rounded-t-2xl bg-primaryLight">Options</div>
             <div class="w-full h-px bg-primaryDark"></div>
@@ -37,6 +42,7 @@
             </button>
           </div>
         </div>
+        <!--
         <button
           class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-1"
         >
@@ -44,7 +50,7 @@
             <span>Help</span>
             <img class="mx-2" src="../assets/icons/question.svg" width="20" height="20" />
           </div>
-        </button>
+        </button> -->
       </div>
     </nav>
   </div>

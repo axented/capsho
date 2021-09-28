@@ -46,12 +46,13 @@
           >
             Sign up
           </button>
+          <!--
           <button class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-1">
             <div class="flex flex-row py-1">
               <span>Help</span>
               <img class="mx-2" src="../assets/icons/question.svg" width="20" height="20" />
             </div>
-          </button>
+          </button> -->
         </div>
       </div>
       <div v-else class="flex flex-1 flex-row flex-wrap items-center justify-end py-2">
@@ -61,6 +62,7 @@
         >
           Dashboard
         </button>
+        <!--
         <button
           class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-1"
         >
@@ -68,7 +70,7 @@
             <span>Help</span>
             <img class="mx-2" src="../assets/icons/question.svg" width="20" height="20" />
           </div>
-        </button>
+        </button> -->
       </div>
     </nav>
   </div>

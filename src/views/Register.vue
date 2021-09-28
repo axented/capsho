@@ -7,7 +7,7 @@
             <img src="../assets/logo-purple.png" class="mx-auto w-30 h-10" />
           </router-link>
         </div>
-        <span class="text-left font-heading text-3xl py-4">Register your account</span>
+        <span class="text-left font-heading text-3xl py-4">Create your Capsho account</span>
         <div>
           <div class="py-2">
             <label class="block text-left text-formLabel font-formText pb-2" for="email">Email</label>
@@ -23,7 +23,7 @@
               @click="registerUser"
               class="flex flex-row disabled:opacity-25 disabled:cursor-not-allowed justify-center w-full bg-primaryDark text-white font-bold py-4 px-4 rounded-full"
             >
-              <span class="px-4">Register</span>
+              <span class="px-4">Create account</span>
             </button>
           </div>
         </div>

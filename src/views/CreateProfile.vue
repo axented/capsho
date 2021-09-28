@@ -26,7 +26,7 @@
                 class="text-left font-body font-bold text-primaryDark"
                 @click="selectImage"
               >
-                Upload brand logotype
+                Upload brand logo
               </button>
               <span v-if="imgData" class="ml-4">{{ imgData.name }}</span>
               <input type="file" ref="logotype" accept="image/*" class="hidden" @change="previewImage" />
@@ -78,10 +78,7 @@
         <div class="bg-white rounded-2xl shadow px-10 py-10">
           <div class="flex flex-col">
             <div class="flex flex-row justify-start">  
-              <span class="font-heading text-2xl pr-2">Choose your content themes: (up to 5)</span>
-              <button>
-                <img src="../assets/icons/info.svg" class="w-5 h-5" />
-              </button>
+              <span class="font-heading text-2xl">Choose your content themes: (up to 5)</span>
             </div>
             <div class="flex flex-row justify-between items-center">
               <button
@@ -163,10 +160,7 @@
         <div class="bg-white rounded-2xl shadow px-10 py-10">
           <div class="flex flex-col">
             <div class="flex flex-row justify-start">  
-              <span class="font-heading text-2xl pr-2">Choose the social media holidays you'd like to celebrate and are important to your brand and customers</span>
-              <button>
-                <img src="../assets/icons/info.svg" class="w-5 h-5" />
-              </button>
+              <span class="font-heading text-2xl">Choose the social media holidays you'd like to celebrate and are important to your brand and customers</span>
             </div>
             <div
               v-for="(month, i) in holidaysFirebase"

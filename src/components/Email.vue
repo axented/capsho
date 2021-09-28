@@ -32,11 +32,6 @@
           {{ piece }}
         </span>
         <div class="flex flex-col pt-8">
-          <div class="flex justify-center">
-            <button class="rounded-xl bg-blue-700 px-10 py-6">
-              <span class="uppercase text-white font-body font-bold">Order</span>
-            </button>
-          </div>
           <div class="flex flex-row py-4 justify-center">
             <img src="../assets/socials/instagram.png" class="h-10 w-10 mx-2" />
             <img src="../assets/socials/dribbble.png" class="h-10 w-10 mx-2" />
@@ -47,12 +42,6 @@
       </div>
       <div class="w-full">
         <div class="py-10 flex justify-evenly">
-          <button
-            @click="viewAllEmails()"
-            class="border border-primaryDark flex flex-row text-primaryDark items-center rounded-full px-6"
-          >
-            <span>View all</span> 
-          </button>
           <button
             @click="selectEmail()"
             class="border border-primaryDark flex flex-row text-primaryDark items-center rounded-full px-6"
@@ -138,29 +127,6 @@ export default {
       .then(() => {
         this.selectEmail()
       })
-    },
-    viewAllEmails() {
-      const displayEmails = []
-      const displaySubjectLines = []
-      this.shownEmails = []
-
-      this.emails.forEach((email) => {
-        if (email.tool === this.selectedTool) {
-          displayEmails.push(email)
-        }
-      })
-      this.emailSubjectLines.forEach((esl) => {
-        if (esl.tool === this.selectedTool) {
-          displaySubjectLines.push(esl)
-        }
-      })
-
-      for (let i = 0; i < displayEmails.length; i++) {
-        this.shownEmails.push({
-          email: displayEmails[i],
-          esl: displaySubjectLines[i]
-        })
-      }
     },
     selectEmail() {
       const displayEmails = []

@@ -137,7 +137,8 @@
               class="py-2"
             >
               <label class="block text-left text-formLabel font-formText pb-2">{{ questions[i] }}</label>
-              <input v-model="answers[i]" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-gray-400 border-0 disabled:cursor-not-allowed" disabled type="text" placeholder="Answer">
+              <input v-if="answers[i].month" v-model="answers[i].name" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-gray-400 border-0 disabled:cursor-not-allowed" disabled type="text" placeholder="Answer">
+              <input v-else v-model="answers[i]" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-gray-400 border-0 disabled:cursor-not-allowed" disabled type="text" placeholder="Answer">
             </div>
           </div>
         </div>

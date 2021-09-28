@@ -4,7 +4,7 @@
       class="text-left font-body font-bold text-primaryDark"
       @click="selectImage"
     >
-      Upload brand logotype
+      Upload brand logo
     </button>
     <span v-if="imgData" class="ml-4">{{ imgData.name }}</span>
     <input type="file" ref="logotype" accept="image/*" class="hidden" @change="previewImage" />

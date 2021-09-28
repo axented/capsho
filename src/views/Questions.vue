@@ -1,26 +1,15 @@
 <template>
   <div>
     <NavbarLoggedIn />
-    <div class="py-4 flex justify-center">
-      <div class="bg-secondaryDark text-white font-bold w-auto rounded-lg py-2 px-4">
-        Have a play
-      </div>
-    </div>
-    <div
-      class="container flex flex-col justify-center"
-    >
+    <div class="container flex flex-col justify-center pt-4">
       <div class="flex flex-col py-4">
         <span class="font-heading text-2xl capitalize py-8">{{ title }}</span>
       </div>
-      <div class="relative mx-auto w-2/3">
+      <div class="relative mx-auto w-2/3 py-10">
         <img :src="progressbar" class="w-full" />
         <div :style="`width: ${calculatePercentage}%`" class="absolute inset-y-0 right-0 h-full opacity-90 bg-white"></div>
       </div>
-      <div class="flex flex-row py-4 items-center">
-        <span>Pro tip:</span>
-        <Popup v-if="arrQuestions.length > 0" buttonText="Watch this video" :video="arrQuestions[step].video" />
-      </div>
-      <div class="flex flex-row">
+      <div class="flex flex-row pt-10">
         <div class="flex flex-col w-1/2 pr-8">
           <div class="flex flex-col border-2 max-h-80 rounded-2xl py-4 px-4 text-left overflow-y-auto">
             <span class="pb-4 font-bold">Storytelling results</span>
@@ -42,7 +31,17 @@
         </div>
         <div class="flex flex-col w-1/2">
           <div v-if="arrQuestions.length > 0" class="flex flex-col text-left py-4">
-            <span class="text-left text-primaryDark font-formText pb-4">{{ arrQuestions[step].question }}</span>
+            <span
+              v-for="(piece, i) in arrQuestions[step].question.split('\n')"
+              :key="i"
+              class="text-left text-primaryDark font-formText"
+            >
+              {{ piece }}
+            </span>
+            <div class="flex flex-row py-2 items-center">
+              <span>Pro tip:</span>
+              <Popup v-if="arrQuestions.length > 0" buttonText="Watch this video" :video="arrQuestions[step].video" />
+            </div>
             <label class="block text-left text-formLabel font-formText pb-2">{{ arrQuestions[step].narrative }}</label>
             <select v-if="arrQuestions[step].holidayDropdown" v-model="captionAnswers[step]" class="apperance-none bg-backgroundGradient rounded-xl w-full py-4 px-4 text-primaryDark border-0 focus:outline-none focus:shadow-outline">
               <option
@@ -134,66 +133,148 @@ export default {
     selectedHoliday: null,
   }),
   methods: {
-    /*
     addHolidayAnswers(Q) {
       const route = this.$route.params.tool
       const tool = route.replaceAll("-", "_")
       let questions = []
+      let set = null
 
       this.arrQuestions.forEach((question) => {
         questions.push(question.question)
       })
 
-      const set = saveAnswersSet(this.captionAnswers, questions, tool)
-      db.collection('holidays')
-        .doc(Q[0].month)
-        .get()
-        .then((doc) => {
-          const days = doc.data().days
-          let captionPromises = []
+      const captionsPromise = this.getHolidaysCaptions(Q)
+      const emailPromise = this.getHolidaysEmails(Q)
+      const eslPromise = this.getHolidaysEsl(Q)
+      const setPromise = saveAnswersSet(this.captionAnswers, questions, tool)
 
-          days.forEach((day) => {
-            if (Q[0].name === day.day) {
-              day.captions.forEach((caption) => {
-                captionPromises.push(caption)
-              })
-            }
-          })
+      setPromise.then((data) => {
+        set = data
 
-          return captionPromises
-        })
-        .then((captionPromises) => {
-          let captions = []
+        return captionsPromise
+      })
+      .then((captions) => {
+        for (let i = 0; i < captions.length; i++) {
+          let temp = captions[0]
+          let tempText = null
+          captions.shift()
+          tempText = eval("`" + temp + "`")
+          captions.push(tempText)
+          saveCaption(tempText, 'holidays', set)
+        }
 
-          captionPromises.forEach((caption) => {
-            caption.get().then((ref) => {
-              captions.push(ref.data().text)
+        return emailPromise
+      })
+      .then((emails) => {
+        for (let i = 0; i < emails.length; i++) {
+          let temp = emails[0]
+          let tempText = null
+          emails.shift()
+          tempText = eval("`" + temp + "`")
+          emails.push(tempText)
+          saveEmail(tempText, 'holidays', set)
+        }
+
+        return eslPromise
+      })
+      .then((esls) => {
+        if (Q[0].month) {
+          Q[0] = Q[0].name
+        }
+        for (let i = 0; i < esls.length; i++) {
+          let temp = esls[0]
+          let tempText = null
+          esls.shift()
+          tempText = eval("`" + temp + "`")
+          esls.push(tempText)
+          saveSubjectLine(tempText, 'holidays', set)
+        }
+      })
+      .then(() => {
+        this.$router.push('/dashboard')
+      })
+    },
+    getHolidaysEsl(Q) {
+      return db.collection('holidays').doc(Q[0].month).get()
+      .then((doc) => {
+        const days = doc.data().days
+        const eslPromises = []
+
+        days.forEach((day) => {
+          if (Q[0].name === day.day) {
+            day.email_subject_lines.forEach((esl) => {
+              const p = esl.get()
+              eslPromises.push(p)
             })
-          })
-
-          return captions
+          }
         })
-        .then((captions) => {
-          set.then((data) => {
-            captions.forEach((caption) => {
 
-              //tempText = eval("`" + temp + "`")
+        return Promise.all(eslPromises)
+      })
+      .then((eslData) => {
+        const esls = []
+
+        eslData.forEach((esl) => {
+          esls.push(esl.data().text)
+        })
+
+        return esls
+      })
+    },
+    getHolidaysEmails(Q){
+      return db.collection('holidays').doc(Q[0].month).get()
+      .then((doc) => {
+        const days = doc.data().days
+        const emailPromises = []
+
+        days.forEach((day) => {
+          if (Q[0].name === day.day) {
+            day.emails.forEach((email) => {
+              const p = email.get()
+              emailPromises.push(p)
             })
-          })
+          }
         })
-      
-          set.then((data) => {
-            for (let i = 0; i < captions.length; i++) {
-              console.log('test', i)
-              let temp = this.captions[0]
-              let tempText = null
-              captions.shift()
-              tempText = eval("`" + temp + "`")
-              captions.push(tempText)
-              saveCaption(tempText, 'holidays', data)
-            }
-          })
-    }, */
+
+        return Promise.all(emailPromises)
+      })
+      .then((emailsData) => {
+        const emails = []
+
+        emailsData.forEach((email) => {
+          emails.push(email.data().text)
+        })
+
+        return emails
+      })
+    },
+    getHolidaysCaptions(Q) {
+      return db.collection('holidays').doc(Q[0].month).get()
+      .then((doc) => {
+        const days = doc.data().days
+        let captionPromises = []
+
+        days.forEach((day) => {
+          if (Q[0].name === day.day) {
+            day.captions.forEach((caption) => {
+              const p = caption.get()
+              captionPromises.push(p)
+            })
+          }
+        })
+
+        return Promise.all(captionPromises)
+      })
+      .then((captionsData) => {
+        const captions = []
+
+        captionsData.forEach((caption) => {
+          captions.push(caption.data().text)
+        })
+
+        return captions
+      })
+    },
     addAnswers(Q) {
       if (this.captionAnswers.includes('')) {
         alert('Please make sure to add all answers!')
@@ -278,8 +359,9 @@ export default {
           if (question.data().dropdown) {
             isDropdown = true
           }
+          const temp = eval("`" + question.data().question + "`")
           this.arrQuestions.push({
-            question: question.data().question,
+            question: temp,
             order: question.data().order,
             dropdown: isDropdown,
             narrative: question.data().lead_in,

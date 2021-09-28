@@ -3,9 +3,11 @@
     <NavbarLoggedIn />
     <div v-if="!paid" class="container">
       <div class="flex flex-col justify-center">
-        <span class="font-heading text-2xl py-6 text-center">Start building your own story</span>
-        <img src="../assets/paywall.png" class="w-1/2 mx-auto" />
-        <PricingRates linkPlatinum="https://buy.stripe.com/test_7sIdRn0cd50S89y5kk" linkDiamond="https://buy.stripe.com/test_cN25kR9MN3WO9dCaEF" />
+        <span class="font-heading text-2xl py-6 text-center">We’ve verified your email and now it’s time to pick your Capsho Plan. Remember you get a free 14-day trial for both plans</span>
+        <div class="flex flex-col lg:flex-row items-center">
+          <img src="../assets/paywall.png" class="w-1/2 lg:w-1/3 lg:h-1/3" />
+          <PricingRates linkPlatinum="http://capshoplans.com/" linkDiamond="http://capshoplans.com/" class="lg:w-2/3" />
+        </div>
       </div>
     </div>
     <div v-else class="container">
@@ -66,7 +68,7 @@
                 Previous
               </button>
               <button
-                v-if="tooltipStep < menu.length - 1"
+                v-if="tooltipStep < menu.length"
                 @click="tooltipStep++"
                 class="text-primaryDark font-bold"
               >
@@ -162,10 +164,10 @@ export default {
       { name: 'Moment in time', route: '/every-day-moment-in-time', description: 'Engage your audience with an emotion they want to feel', isEnabled: false },
       { name: 'How-to', route: '/how-to', description: 'Educate your audience on something they want to know how to do ', isEnabled: false },
       { name: 'Product spotlight', route: '/product-spotlight', description: "Excite your audience about a hero product or collection that's available to buy", isEnabled: false },
-      { name: 'Running a promotion', route: '/running-a-promotion', description: "Compel your customers to buy from your newest promotion", isEnabled: false },
-      { name: 'Launching a product', route: '/launching-a-new-product', description: "Prime your customers to buy a new product or collection you're launching", isEnabled: false },
-      { name: 'Viralocity Contest', route: '/viralocity-contest', description: "Excite your audience about your Viralocity Contest", isEnabled: false },
-      //{ name: 'Holidays', route: '/holidays', description: "Recognize and celebrate the social media holidays your customers care about", isEnabled: false },
+      //{ name: 'Running a promotion', route: '/running-a-promotion', description: "Compel your customers to buy from your newest promotion", isEnabled: false },
+      //{ name: 'Launching a product', route: '/launching-a-new-product', description: "Prime your customers to buy a new product or collection you're launching", isEnabled: false },
+      //{ name: 'Viralocity Contest', route: '/viralocity-contest', description: "Excite your audience about your Viralocity Contest", isEnabled: false },
+      { name: 'Holidays', route: '/holidays', description: "Recognize and celebrate the social media holidays your customers care about", isEnabled: false },
     ]
   }),
   methods: {
@@ -215,6 +217,15 @@ export default {
       .then((doc) => {
         this.onboarding1 = !doc.data().first_login 
       })
+    },
+    intercom(id, name, email) {
+       window.intercomSettings = {
+        app_id: process.env.VUE_APP_INTERCOM_ID,
+        name: name,
+        email: email,
+        user_id: id,
+      };
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + process.env.VUE_APP_INTERCOM_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
     }
   },
   computed: {
@@ -226,6 +237,7 @@ export default {
         this.hasDoneOnboarding(newVal.id)
         if (this.user.subscription === 'platinum' || this.user.subscription === 'diamond') {
           this.paid = true
+          this.intercom(newVal.id, newVal.name, newVal.email)
         }
       }
     }
@@ -237,6 +249,9 @@ export default {
     if (this.user) {
       if (this.user.subscription === 'platinum' || this.user.subscription === 'diamond') {
         this.paid = true
+        if (this.userData) {  
+          this.intercom(this.userData.id, this.userData.name, this.userData.email)
+        }
       }
     }
   }

@@ -45,9 +45,7 @@
               <p class="text-xs px-2 pb-2">Your Instagram bio should be a combination of the benefit you create for your customer and what you sell</p>
             </div>
             <!-- Buttons -->
-            <img src="../assets/iphone/buttons.svg" class="px-2" />
-            <!-- Highlights -->
-            <img src="../assets/iphone/highlights.svg" class="px-2 h-20 mr-auto" />
+            <img src="../assets/iphone/buttons.jpeg" />
             <!-- Gallery -->
             <img src="../assets/iphone/gallery.svg" />
             <!-- Posts -->
@@ -123,7 +121,7 @@
           @click="output = 'grid'"
         >
           <!-- <img src="../assets/icons/save.svg" class="h-4 w-4 mr-2" /> -->
-          <span>View all my captions</span> 
+          <span>View all as text</span> 
         </button>
         <button
           v-if="output === 'grid'"
@@ -215,11 +213,15 @@ export default {
             this.captions.push(caption)
             for (let i = 0; i < this.template.length; i++) {
               if (this.template[i].type === caption.type && this.template[i].text === '') {
-                this.template[i].text = caption.text
-                i = 9
+                if (this.sets.includes(caption.set)) {  
+                  this.template[i].text = caption.text
+                  i = 9
+                }
               } else if (this.template[i].tool === caption.tool && this.template[i].text === '') {
-                this.template[i].text = caption.text
-                i = 9
+                if (this.sets.includes(caption.set)) {  
+                  this.template[i].text = caption.text
+                  i = 9
+                }
               }
             }
           })

@@ -1,17 +1,20 @@
 <template>
   <div>
-    <span class="font-heading text-5xl text-primaryDark">Please verify your email before continuing <br></span>
-    <span class="font-heading text-5xl text-primaryDark">{{ verifyEmailError }}</span>
+    <div class="flex flex-col">
+      <span class="font-heading text-5xl text-primaryDark">Please verify your email before continuing</span>
+      <span class="font-heading text-5xl text-primaryDark pt-8">{{ verifyEmailError }}</span>
+    </div>
     <div class="flex flex-col pt-10">
       <div>
         <button
+          v-if="!verifyEmailError"
           @click="verifyUserEmail"
           class="font-body font-bold bg-primaryDark text-white py-2 px-4 mx-2 rounded-full"
         >
           Verify email
         </button>
       </div>
-      <div class="pt-5">
+      <div class="pt-4">
         <button @click="signOutUser">Log Out</button>
       </div>
     </div>

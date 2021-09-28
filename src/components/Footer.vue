@@ -71,8 +71,8 @@ export default {
     ],
     footerSupport: [
       //{ name: 'Help center', link: '/' },
-      { name: 'Terms of service', link: '/' },
-      { name: 'Privacy policy', link: '/' },
+      { name: 'Terms and conditions', link: '/terms-and-conditions' },
+      { name: 'Privacy policy', link: '/privacy-policy' },
       //{ name: 'Ask the community', link: '/' }
     ]
   })

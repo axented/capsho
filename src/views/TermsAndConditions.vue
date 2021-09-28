@@ -4,7 +4,7 @@
     <NavbarDesktop />
     <div class="flex flex-col bg-gradient-to-br from-backgroundGradient to-white py-10">
       <div class="container">
-        <span class="font-heading text-4xl">Terms of service</span>
+        <span class="font-heading text-4xl">Terms and conditions</span>
         <!-- Text -->
         <div class="text-left">
           <div class="flex flex-col justify-start font-body">

@@ -33,7 +33,7 @@ module.exports = {
         ig: '100px',
       },
       height: {
-        iphoneHeight: '720px',
+        iphoneHeight: '660px',
         ig: '100px'
       }
     },
