@@ -27,7 +27,7 @@
           <div class="flex flex-col justify-end h-full">
             <a :href="linkPlatinum" target="_blank" class="w-full">
               <button class="rounded-full bg-secondaryDark py-4 mt-6 w-full">
-                <span class="font-body font-bold text-white font-body">Get Started</span>
+                <span class="font-body font-bold text-white font-body">{{ btnTextPlatinum }}</span>
               </button>
             </a>
           </div>
@@ -53,7 +53,7 @@
           <div class="flex flex-col justify-end h-full">
             <a :href="linkDiamond" target="_blank" class="w-full">
               <button class="rounded-full bg-secondaryDark py-4 mt-6 w-full">
-                <span class="font-body font-bold text-white font-body">Get Started</span>
+                <span class="font-body font-bold text-white font-body">{{ btnTextDiamond }}</span>
               </button>
             </a>
           </div>
@@ -66,7 +66,7 @@
 <script>
 export default {
   name: 'Pricing Rates',
-  props: ['title', 'linkDiamond', 'linkPlatinum'],
+  props: ['title', 'linkDiamond', 'linkPlatinum', 'btnTextDiamond', 'btnTextPlatinum'],
   data: () => ({
     platinumFeatures: [
       'Unlimited access to all our storytelling tools to generate captions you can schedule & post and emails you can schedule & send',

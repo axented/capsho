@@ -16,6 +16,7 @@ export default createStore({
         template: null,
         businessName: null,
         subscription: null,
+        stripeId: null,
         data: null
       },
       loginError: null,
@@ -68,6 +69,7 @@ export default createStore({
       state.user.template = null
       state.user.subscription = null
       state.user.businessName = null
+      state.user.stripeId = null
     },
     setUser(state, data) {
       state.user.data = data;
@@ -89,6 +91,7 @@ export default createStore({
       state.user.createdProfile = obj.created_profile
       state.user.template = obj.template
       state.user.subscription = obj.subscription
+      state.user.stripeId = obj.stripe_id
     },
     setLoginError(state, value) {
       state.loginError = value;

@@ -7,7 +7,7 @@
             <div class="mt-8 sm:mt-0 sm:w-full flex flex-col md:flex-row">
               <div class="flex flex-col align-start md:mr-5">
                 <div class="flex justify-center md:justify-start">
-                  <img src="../assets/logo-footer.png" class="w-1/2 -ml-5" />
+                  <img src="../assets/logo-purple.png" class="w-1/4" />
                 </div>
                 <span class="py-8 pr-4 font-body text-center sm:text-left">Copyright © 2021 Capsho by the Growthboss.</span>
                 <div class="flex flex-row justify-center sm:justify-start items-start pb-4">

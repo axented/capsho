@@ -142,7 +142,7 @@
               </div>
               <div class="py-4">
                 <button
-                  @click="step++"
+                  @click="step=step+2"
                   class="font-body font-bold text-white rounded-full bg-primaryDark py-4 px-4"
                 >
                   Continue
@@ -152,7 +152,7 @@
           </div>
         </div>
       </div>
-      <!-- STEP 3 -->
+      <!-- STEP 3
       <div
         v-if="step === 3"
         class="container"
@@ -199,7 +199,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- STEP 4 -->
       <div
         v-if="step === 4"
@@ -208,13 +208,13 @@
         <div class="bg-white rounded-2xl shadow px-10 py-10">
           <div class="flex flex-col">
             <div class="flex flex-row pb-4">
-              <span class="font-heading text-2xl">What do you expect from Capsho?</span>
+              <span class="font-heading text-2xl">If you could have a magic wand to wave over Capsho and get exactly what you want, what would you wish for?</span>
             </div>
             <textarea v-model="user.expectation" class="apperance-none border-0 bg-backgroundGradient rounded-xl resize-none w-full py-4 px-4 text-primaryDark focus:outline-none focus:shadow-outline" rows="5" id="comment" placeholder="We love meeting (and exceeding!) expectations so let us know what you're looking forward to!"></textarea>
             <div class="flex justify-between">
               <div class="py-4">
                 <button
-                  @click="step--"
+                  @click="step=step-2"
                   class="font-body font-bold text-primaryDark rounded-full hover:bg-offWhite py-4 px-4"
                 >
                   Back

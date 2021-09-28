@@ -6,7 +6,7 @@
         <span class="font-heading text-2xl py-6 text-center">We’ve verified your email and now it’s time to pick your Capsho Plan. Remember you get a free 14-day trial for both plans</span>
         <div class="flex flex-col lg:flex-row items-center">
           <img src="../assets/paywall.png" class="w-1/2 lg:w-1/3 lg:h-1/3" />
-          <PricingRates linkPlatinum="http://capshoplans.com/" linkDiamond="http://capshoplans.com/" class="lg:w-2/3" />
+          <PricingRates btnTextPlatinum="Get started" btnTextDiamond="Get started" linkPlatinum="http://capshoplans.com/" linkDiamond="http://capshoplans.com/" class="lg:w-2/3" />
         </div>
       </div>
     </div>
@@ -167,7 +167,7 @@ export default {
       //{ name: 'Running a promotion', route: '/running-a-promotion', description: "Compel your customers to buy from your newest promotion", isEnabled: false },
       //{ name: 'Launching a product', route: '/launching-a-new-product', description: "Prime your customers to buy a new product or collection you're launching", isEnabled: false },
       //{ name: 'Viralocity Contest', route: '/viralocity-contest', description: "Excite your audience about your Viralocity Contest", isEnabled: false },
-      { name: 'Holidays', route: '/holidays', description: "Recognize and celebrate the social media holidays your customers care about", isEnabled: false },
+      //{ name: 'Holidays', route: '/holidays', description: "Recognize and celebrate the social media holidays your customers care about", isEnabled: false },
     ]
   }),
   methods: {

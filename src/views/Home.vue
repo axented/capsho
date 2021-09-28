@@ -104,8 +104,8 @@
         </div>
       </div>
     </div>
-    <!-- Pricing -->
-    <PricingRates title="Choose your plan" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" />
+    <!-- Pricing
+    <PricingRates title="Choose your plan" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" /> -->
     <!-- Ready to write -->
     <div class="py-10 bg-primaryLight">
       <div class="container">
@@ -148,20 +148,19 @@
 import NavbarDesktop from '../components/NavbarDesktop.vue'
 import NavbarMobile from '../components/NavbarMobile.vue'
 import Footer from '../components/Footer.vue'
-import PricingRates from '../components/PricingRates.vue'
+//import PricingRates from '../components/PricingRates.vue'
 import SignUpButton from '../components/SignUpButton.vue'
 
 export default {
   name: 'Home',
   components: {
-    PricingRates,
+    //PricingRates,
     SignUpButton,
     NavbarDesktop,
     NavbarMobile,
     Footer
   },
   data: () => ({
-    test: null
   })
 }
 </script>

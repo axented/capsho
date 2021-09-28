@@ -9,7 +9,7 @@
         <Popup buttonText="Watch demo" video="https://player.vimeo.com/video/611198993?h=58b059483b" />
       </div>
     </div>
-    <PricingRates title="Choose your plan" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" />
+    <PricingRates title="Choose your plan" btnTextPlatinum="Create your account and get started" btnTextDiamond="Create your account and get started" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" />
     <!-- Core features -->
     <div class="container">
       <div class="flex flex-col py-10">

@@ -24,7 +24,7 @@ export const authCheck = firebase.auth().onAuthStateChanged(user => {
       .get()
       .then((ref) => {
         if (ref.data()) {
-          const obj = { subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
+          const obj = { stripe_id: ref.data().stripe_id, subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
           store.commit('setUpdateUser', obj)
         }
         store.dispatch('fetchUser', user)
@@ -37,7 +37,7 @@ export function getUserInfo() {
     .doc(getUser())
     .get()
     .then((ref) => {
-      const obj = { toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
+      const obj = { stripe_id: ref.data().stripe_id, subscription: ref.data().subscription, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
       store.commit('setUpdateUser', obj)
     })
 }
@@ -52,7 +52,7 @@ export function signInWithGoogle() {
     db.collection('users').doc(id).get()
     .then((ref) => {
       if (ref.data()) {
-        obj = { subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
+        obj = { stripe_id: ref.data().stripe_id, subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
         store.commit('setUpdateUser', obj)
         router.push('/dashboard')
       } else {
@@ -84,7 +84,7 @@ export function signInWithEmail(email, password) {
     db.collection('users').doc(id).get()
     .then((ref) => {
       if (ref.data()) {
-        obj = { subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
+        obj = { stripe_id: ref.data().stripe_id, subscription: ref.data().subscription, template: ref.data().template, toneOfVoice: ref.data().tone_of_voice, type: ref.data().type, businessName: ref.data().business_name, created_profile: ref.data().created_profile }
         store.commit('setUpdateUser', obj)
         router.push('/dashboard')
       } else {
@@ -99,7 +99,7 @@ export function signInWithEmail(email, password) {
 
 export function verifyEmail() {
   firebase.auth().currentUser.sendEmailVerification().then(() => {
-    store.commit('setVerifyEmailError', 'We’ve sent you a verification email with a link inside. Just click on the link and then log back in to start!');
+    store.commit('setVerifyEmailError', "We’ve sent you a verification email with a link inside. Just click on the link and when you're back here, refresh this browser to get started!");
   }).catch((err) => {
     console.log(err);
     store.commit('setVerifyEmailError', err.message);
@@ -141,8 +141,10 @@ export function addUserToCollection(tone, type, business, holidays, themes, expe
       holidays: holidays,
       themes: themes,
       subscription: 'none',
+      stripe_id: null,
       expectation: expectation,
-      template: 1
+      template: 1,
+      lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
     })
     .then(() => {
       const obj = { 
@@ -151,7 +153,8 @@ export function addUserToCollection(tone, type, business, holidays, themes, expe
         businessName: business,
         created_profile: true,
         template: 1,
-        subscription: 'none'
+        subscription: 'none',
+        stripe_id: null
       }
       store.commit('setUpdateUser', obj)
       router.push('/dashboard')
@@ -314,23 +317,24 @@ export function updateUserInfo(newName, newPhoto) {
 export function updateUserProfile(newData) {
   const user = firebase.auth().currentUser
 
-  db.collection('users')
-    .doc(user.uid)
-    .update({
-      business_name: newData.businessName,
-      tone_of_voice: newData.toneOfVoice
-    })
-    .then(() => {
-      const type = store.getters.type
-      let obj = {
-        toneOfVoice: newData.toneOfVoice,
-        type: type,
-        businessName: newData.businessName,
-        created_profile: true
-      }
-      store.commit('setUpdateUser', obj)
-      updateUserInfo(newData.data.displayName)
-    })
+  db.collection('users').doc(user.uid).update({
+    business_name: newData.businessName,
+    tone_of_voice: newData.toneOfVoice
+  })
+  .then(() => {
+    const type = store.getters.type
+    let obj = {
+      toneOfVoice: newData.toneOfVoice,
+      type: type,
+      businessName: newData.businessName,
+      created_profile: true,
+      template: store.getters.user.template,
+      subscription: store.getters.user.subscription,
+      stripe_id: store.getters.user.stripeId
+    }
+    store.commit('setUpdateUser', obj)
+    updateUserInfo(newData.data.displayName)
+  })
 }
 
 export function saveImage(imgData) {

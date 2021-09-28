@@ -15,7 +15,7 @@
             @click="dropdown = !dropdown"
             class="font-body font-bold text-primaryDark hover:bg-offWhite rounded-full py-2 px-4 ml-3"
           >
-            <img src="../assets/icons/more.svg" width="20" height="20" />
+            <img src="../assets/icons/user.png" width="20" height="20" />
           </button>
           <div v-if="dropdown" class="absolute flex flex-col bg-white border border-primaryLight shadow rounded-2xl mt-2">
             <div class="px-4 py-2 rounded-t-2xl bg-primaryLight">Options</div>
@@ -70,6 +70,7 @@ export default {
   }),
   methods: {
     logOutFunction() {
+      window.Intercom('shutdown')
       logOut()
     }
   }
