@@ -16,6 +16,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
 //import Test from '../views/Test.vue'
 import NotFoundPage from '../components/404.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
 
 const routes = [
   {
@@ -66,6 +67,19 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register,
+    beforeEnter: (to, from, next) => {
+      const user = store.getters.user
+      if (!user.loggedIn) {
+        next()
+      } else {
+        next('/dashboard')
+      }
+    }
+  },
+  {
+    path: '/forgot-password',
+    name: 'Forgot Password',
+    component: ForgotPassword,
     beforeEnter: (to, from, next) => {
       const user = store.getters.user
       if (!user.loggedIn) {

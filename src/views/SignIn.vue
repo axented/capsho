@@ -70,7 +70,10 @@
           </button>
         </div>
         <div class="pt-6">
-          <button class="text-gray-400">
+          <button
+            @click="$router.push('/forgot-password')"
+            class="text-gray-400"
+          >
             Forgot password
           </button>
         </div>

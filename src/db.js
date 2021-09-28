@@ -106,11 +106,17 @@ export function verifyEmail() {
   })
 }
 
-export function resetPassword() {
+export function resetPassword(email) {
   const user = firebase.auth().currentUser
-
-  firebase.auth().sendPasswordResetEmail(user.email).then(() => {
-    console.log('Email sent!')
+  if (user) {
+    email = user.email
+  }
+  firebase.auth().sendPasswordResetEmail(email).then(() => {
+    if (user) {
+      logOut()
+    } else {
+      router.push('/sign-in')
+    }
   }).catch((err) => {
     console.log(err)
   })
