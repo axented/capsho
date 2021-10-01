@@ -4,12 +4,12 @@
       <div class="container">
         <div class="flex flex-col justify-between">
           <div class="sm:flex sm:mt-8">
-            <div class="mt-8 sm:mt-0 sm:w-full flex flex-col md:flex-row">
+            <div class="mt-8 sm:mt-0 sm:w-full flex flex-col md:flex-row md:justify-start">
               <div class="flex flex-col align-start md:mr-5">
                 <div class="flex justify-center md:justify-start">
                   <img src="../assets/logo-purple.png" class="w-1/4" />
                 </div>
-                <span class="py-8 pr-4 font-body text-center sm:text-left">Copyright © 2021 Capsho by the Growthboss.</span>
+                <span class="py-8 pr-4 font-body text-center sm:text-left">Copyright © 2021 Capsho.</span>
                 <div class="flex flex-row justify-center sm:justify-start items-start pb-4">
                   <a href="https://www.instagram.com/capshohq/" target="_blank" class="mr-2">
                     <button class="bg-gray-200 py-3 px-3 rounded-full">
@@ -42,12 +42,13 @@
                   </button>
                 </div>
                 <div class="flex flex-col sm:pl-3 py-4 md:py-0">
-                  <span class="font-bold mb-2 text-center sm:text-left">Newsletter</span>
-                  <div class="flex flex-wrap">
-                    <input class="flex-none block rounded w-full bg-gray-100 border-0 focus:outline-none focus:ring focus:border-gray-300 pl-4 py-2" type="email" placeholder="Your email address" />
-                    <button class="flex-none -ml-9 px-2 hover:bg-gray-400">
-                      <img src="../assets/icons/send.svg" width="20" height="20" />
-                    </button>
+                  <span class="font-bold mb-2 text-center sm:text-left">Unlock Viralocity Marketing Secrets</span>
+                  <div class="flex justify-center sm:justify-start">
+                    <a href="https://www.capshoplans.com/gimmedemtips" target="_blank">
+                      <button class="py-2 text-center sm:text-left">
+                        Gimme dem tips!
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -75,12 +75,11 @@ export default {
     ],
     diamondFeatures: [
       'All of the Platinum Plan benefits',
-      'Premium access to a Social Media Action Calendar',
       'Premium monthly access to a Social Media Action Calendar',
       'Premium montly access to a trending Instagram Reels Inspiration Drop, with specific instructions on how to create them',
       'Premium access to our Instagram Stories Strategy',
       'Premium access to our Social Media Graphics Swipe File',
-      '1:1 Onboarding call Premium access to a private Facebook Group community'
+      '1:1 Onboarding call'
     ]
   })
 }

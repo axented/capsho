@@ -6,9 +6,11 @@
         :key="i"
         class="w-1/3 h-auto px-2 py-2"
       >
-        <div class="bg-gradient-to-br from-primaryLight to-bacgkroundGradient px-2 py-2 rounded-2xl h-full border border-primaryLight">
-          <span class="capitalize font-bold text-xl">{{ space.creative }}</span><br>
-          <span v-if="space.text">{{ space.text }}</span>
+        <div class="flex flex-col bg-gradient-to-br from-primaryLight to-bacgkroundGradient px-4 py-4 rounded-2xl h-full border border-primaryLight">
+          <span class="capitalize font-bold font-body text-xl">{{ space.creative }}</span>
+          <span v-if="space.text" style="white-space: pre-wrap" class="font-body">
+            {{ space.text }}
+          </span>
           <span v-else>No caption yet keep using other story telling tools to fill this space!</span>
         </div>
       </div>
@@ -81,12 +83,8 @@
           </div>
           <div class="flex flex-col bg-white rounded-3xl border-2 shadow">
             <img class="rounded-t-3xl" :src="shownCaption.image" />
-            <span
-              v-for="(piece, j) in shownCaption.caption.split('\n')"
-              :key="j"
-              class="font-body py-4 text-center px-6"
-            >
-              {{ piece }}
+            <span style="white-space: pre-wrap" class="font-body py-4 text-center px-6">
+              {{ shownCaption.caption }}
             </span>
             <div class="flex flex-row py-4">
               <button
@@ -114,7 +112,7 @@
     </div>
     <div class="w-full">
       <div class="py-10 flex justify-evenly">
-        <Popup buttonText="Watch this video" video="https://player.vimeo.com/video/611198993?h=58b059483b" />
+        <Popup buttonText="Watch this video" video="https://player.vimeo.com/video/618207625?h=bfad239af6&badge=0&autopause=0&player_id=0&app_id=58479" />
         <button
           v-if="output === 'captions'"
           class="flex flex-row text-white bg-primaryDark rounded-full items-center py-4 px-4"
@@ -175,10 +173,12 @@ export default {
     refreshCaption() {
       let availableCaptions = []
       this.captions.forEach((caption) => {
-        if (caption.type === this.shownCaption.type) {
-          availableCaptions.push(caption)
-        } else if (caption.tool === this.shownCaption.tool) {
-          availableCaptions.push(caption)
+        if (caption.type === this.shownCaption.type || caption.tool === this.shownCaption.tool) {
+          if (this.sets.includes(caption.set)) { 
+            availableCaptions.push(caption)
+          } else if (caption.tool === 'engage') {
+            availableCaptions.push(caption)
+          }
         }
       })
       let num = Math.floor(Math.random() * availableCaptions.length)
@@ -195,7 +195,7 @@ export default {
         pos: i
       }
     },
-    getTemplate(id, template, type) {
+    getTemplate(id, template, type, toneOfVoice) {
       if (template) {
         db.collection('templates').doc(type + "_" + template).get()
         .then((doc) => {
@@ -211,20 +211,41 @@ export default {
           })
           doc.data().captions.forEach((caption) => {
             this.captions.push(caption)
-            for (let i = 0; i < this.template.length; i++) {
-              if (this.template[i].type === caption.type && this.template[i].text === '') {
-                if (this.sets.includes(caption.set)) {  
-                  this.template[i].text = caption.text
-                  i = 9
-                }
-              } else if (this.template[i].tool === caption.tool && this.template[i].text === '') {
-                if (this.sets.includes(caption.set)) {  
-                  this.template[i].text = caption.text
-                  i = 9
+          })
+
+          return db.collection('engage').doc(toneOfVoice).get()
+        })
+        .then((doc) => {
+          const promises = []
+          doc.data().captions.forEach((caption) => {
+            const p = caption.get()
+            promises.push(p)
+          })
+
+          return Promise.all(promises)
+        })
+        .then((engageCaptions) => {
+          engageCaptions.forEach((caption) => {
+            this.captions.push(caption.data())
+          })
+        })
+        .then(() => {
+          for (let i = 0; i < this.template.length; i++) {
+            let possibles = []
+            this.captions.forEach((caption) => {
+              if (this.template[i].type === caption.type || this.template[i].tool === caption.tool) {
+                if (this.sets.includes(caption.set)) {
+                  possibles.push(caption.text)
+                } else if (caption.tool === 'engage') {
+                  possibles.push(caption.text)
                 }
               }
+            })
+            if (possibles.length > 0) {
+              const rand = Math.floor(Math.random() * possibles.length)
+              this.template[i].text = possibles[rand]
             }
-          })
+          }
         })
       }
     }
@@ -235,13 +256,13 @@ export default {
   watch: {
     userData(newVal) {
       if (newVal) {  
-        this.getTemplate(newVal.id, this.user.template, this.user.type)
+        this.getTemplate(newVal.id, this.user.template, this.user.type, this.user.toneOfVoice)
       }
     }
   },
-  mounted() {
+  created() {
     if (this.userData) {
-      this.getTemplate(this.user.data.id, this.user.template, this.user.type)
+      this.getTemplate(this.user.data.id, this.user.template, this.user.type, this.user.toneOfVoice)
     }
   }
 }

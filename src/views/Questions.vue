@@ -30,13 +30,9 @@
           </div>
         </div>
         <div class="flex flex-col w-1/2">
-          <div v-if="arrQuestions.length > 0" class="flex flex-col text-left py-4">
-            <span
-              v-for="(piece, i) in arrQuestions[step].question.split('\n')"
-              :key="i"
-              class="text-left text-primaryDark font-formText"
-            >
-              {{ piece }}
+          <div v-if="arrQuestions.length > 0" class="flex flex-col text-left pb-4">
+            <span style="white-space: pre-wrap" class="text-left text-primaryDark font-formText">
+              {{ arrQuestions[step].question }}
             </span>
             <div class="flex flex-row py-2 items-center">
               <span>Pro tip:</span>
@@ -330,8 +326,9 @@ export default {
             saveSubjectLine(tempText, tool, data)
           })
         })
-
-        this.$router.push('/dashboard')
+        .then(() => {
+          this.$router.push('/dashboard')
+        })
       }
     },
     getQuestions(toneOfVoice) {

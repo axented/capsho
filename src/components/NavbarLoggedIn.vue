@@ -70,7 +70,9 @@ export default {
   }),
   methods: {
     logOutFunction() {
-      window.Intercom('shutdown')
+      if (window.Intercom) {  
+        window.Intercom('shutdown')
+      }
       logOut()
     }
   }

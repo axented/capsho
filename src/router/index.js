@@ -14,7 +14,6 @@ import CreateProfile from '../views/CreateProfile.vue'
 import Questions from '../views/Questions.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
-//import Test from '../views/Test.vue'
 import NotFoundPage from '../components/404.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
 
@@ -162,24 +161,6 @@ const routes = [
       }
     }
   },
-  /*
-  {
-    path: '/test',
-    name: 'Test',
-    component: Test,
-    beforeEnter: (to, from, next) => {
-      const user = store.getters.user
-      if (user.loggedIn) {
-        if (!user.createdProfile) {
-          next('/create-profile')
-        } else {
-          next()
-        }
-      } else {
-        next('/sign-in')
-      }
-    }
-  }, */
   {
     path: '/:pathMatch(.*)',
     component: NotFoundPage

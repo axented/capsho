@@ -9,7 +9,7 @@
       </div>
       <div class="container z-10">
         <div class="text-center py-6 mb-6 mx-auto flex flex-col relative">
-          <span class="font-heading sm:leading-normal text-5xl pb-8">From blank pages to</span>
+          <span class="font-heading sm:leading-normal text-5xl pb-8">From blank page to</span>
           <div class="absolute bottom-0 inset-x-0">  
             <span class="w1 opacity-0 font-heading text-5xl">captions</span>
           </div>
@@ -63,7 +63,7 @@
           <div class="flex flex-col w-full md:w-1/6">
             <span class="text-8xl font-number font-extrabold -mb-8 text-gray-100">3</span>
             <span class="text-xl font-number font-medium">Go from story to captions and emails</span>
-            <span class="font-number w-40 pt-4 mx-auto">et your captions & emails that you can copy, download, add your flavor to and schedule. The best part? We've got hundreds stored for you to keep coming back to!</span>
+            <span class="font-number w-40 pt-4 mx-auto">Get your captions & emails that you can copy, download, add your flavor to and schedule. The best part? We've got hundreds stored for you to keep coming back to!</span>
           </div>
         </div>
       </div>
@@ -100,6 +100,21 @@
               <span class="text-left font-formText text-xl font-bold pt-10">A dynamic 9-Grid for instagram with captions AND recommended visuals</span>
               <span class="text-left font-bodyLexend pt-4 leading-loose">View and copy captions (Peanut Butter) and get our recommended creatives (Jelly) for your Instagram feed.</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- As seen on -->
+    <div class="py-10">
+      <div class="container">
+        <div class="flex flex-col">
+          <span class="font-heading text-left text-4xl">As seen on</span>
+          <div class="flex flex-wrap xl:flex-nowrap flex-row items-center justify-center 2xl:justify-between py-10">
+            <img src="../assets/as-seen-on/nebraska.jpg" class="w-64 h-20 my-4 md:mx-4 xl:m-0 xl:w-1/4" />
+            <img src="../assets/as-seen-on/2news2.png" class="w-64 h-20 my-4 md:mx-4 xl:m-0 xl:w-1/4" />
+            <img src="../assets/as-seen-on/fox402.jpg" class="w-58 h-20 my-4 md:mx-4 xl:m-0 xl:w-1/4" />
+            <img src="../assets/as-seen-on/newsnet1.jpg" class="w-62 h-20 my-4 md:mx-4 xl:m-0 xl:w-1/4" />
+            <img src="../assets/as-seen-on/marketwatch2.jpg" class="w-64 h-20 my-4 md:mx-4 xl:m-0 xl:w-1/4" />
           </div>
         </div>
       </div>

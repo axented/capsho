@@ -6,7 +6,7 @@
       <span class="font-heading text-5xl pb-4">Capsho Pricing</span>
       <span class="font-number">Get a higher quality & lower maintenance (most also say better looking) copywriter in your pocket, for a fraction of the cost </span>
       <div class="flex justify-center pt-8">  
-        <Popup buttonText="Watch demo" video="https://player.vimeo.com/video/611198993?h=58b059483b" />
+        <Popup buttonText="Watch demo" video="https://player.vimeo.com/video/619020440?h=c8e49a47c0&badge=0&autopause=0&player_id=0&app_id=58479" />
       </div>
     </div>
     <PricingRates title="Choose your plan" btnTextPlatinum="Create your account and get started" btnTextDiamond="Create your account and get started" linkDiamond="sign-in" linkPlatinum="sign-in" class="bg-gradient-to-r from-white to-backgroundGradient" />
@@ -30,27 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="py-8 bg-offWhite px-4">
-      <div class="container">
-        <div class="text-center py-8 mx-auto max-w-2xl">
-          <span class="text-5xl font-heading leading-normal">Want to learn how you can use Capsho to 10X yout sales?</span>
-        </div>
-        <div class="pb-8">
-          <a href="https://thegrowthbossunlocked.com/register50606922" target="_blank">
-            <button class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full">
-              Sign up for our Free Webclass!
-            </button>
-          </a>
-          <!--
-          <button
-            @click="$router.push('/sign-in')"
-            class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full"
-          >
-            Sign up for our Free Webclass!
-          </button> -->
-        </div>
-      </div>
-    </div>
+    <SignUpButton />
     <Footer />
   </div>
 </template>
@@ -61,6 +41,7 @@ import NavbarMobile from '../components/NavbarMobile.vue'
 import Footer from '../components/Footer.vue'
 import PricingRates from '../components/PricingRates.vue'
 import Popup from '../components/Popup.vue'
+import SignUpButton from '../components/SignUpButton.vue'
 
 export default {
   name: 'Pricing',
@@ -69,7 +50,8 @@ export default {
     NavbarMobile,
     NavbarDesktop,
     Footer,
-    Popup
+    Popup,
+    SignUpButton
   },
   data: () => ({
     isOpen: false,

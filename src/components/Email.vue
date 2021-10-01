@@ -24,12 +24,8 @@
           <img src="../assets/email-img.png" />
         </div>
         <span class="text-center font-heading text-2xl py-4">{{ email.esl.text }}</span>
-        <span
-          v-for="(piece, j) in email.email.text.split('\n')"
-          :key="j"
-          class="font-body py-1 text-center px-6"
-        >
-          {{ piece }}
+        <span style="white-space: pre-wrap" class="font-body py-4 text-center px-6">
+          {{ email.email.text }}
         </span>
         <div class="flex flex-col pt-8">
           <div class="flex flex-row py-4 justify-center">
