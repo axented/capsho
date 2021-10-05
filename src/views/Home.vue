@@ -137,7 +137,7 @@
               >
                 Start your free trial
               </button> -->
-              <a href="https://thegrowthbossunlocked.com/register50606922" target="_blank">
+              <a href="https://www.capshounlocked.com/webinar-registration" target="_blank">
                 <button class="rounded-full bg-primaryDark font-body font-bold text-white py-4 px-4 -mt-3">
                   Sign up for our free Webclass
                 </button>

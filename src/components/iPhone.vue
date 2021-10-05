@@ -15,8 +15,11 @@
         </div>
       </div>
     </div>
-    <div v-if="output === 'captions'" class="flex flex-row w-4/5 justify-end" >
-      <div class="w-1/2">
+    <div v-if="output === 'captions'" class="flex flex-row w-4/5 justify-end">
+      <div class="w-1/2 flex flex-col justify-center">
+        <div class="flex justify-center pb-4">
+          <Popup buttonText="Watch this video" video="https://player.vimeo.com/video/618207625?h=bfad239af6&badge=0&autopause=0&player_id=0&app_id=58479" />
+        </div>
         <div class="bg-white rounded-3xl border-2 shadow h-iphoneHeight w-iphoneWidth mx-auto">
           <div class="flex flex-col">
             <!-- Status bar -->
@@ -111,8 +114,7 @@
       </div>
     </div>
     <div class="w-full">
-      <div class="py-10 flex justify-evenly">
-        <Popup buttonText="Watch this video" video="https://player.vimeo.com/video/618207625?h=bfad239af6&badge=0&autopause=0&player_id=0&app_id=58479" />
+      <div class="py-10 flex justify-center">
         <button
           v-if="output === 'captions'"
           class="flex flex-row text-white bg-primaryDark rounded-full items-center py-4 px-4"
@@ -182,9 +184,14 @@ export default {
         }
       })
       let num = Math.floor(Math.random() * availableCaptions.length)
-
-      this.shownCaption.caption = availableCaptions[num].text
-      this.template[this.shownCaption.pos].caption = availableCaptions[num].text
+      let temp = ''
+      if (availableCaptions[num].tool === 'engage') {
+        temp = eval("`" + availableCaptions[num].text + "`")
+      }  else {
+        temp = availableCaptions[num].text
+      }
+      this.shownCaption.caption = temp
+      this.template[this.shownCaption.pos].caption = temp
     },
     showCaption(space, i) {
       this.shownCaption = {
@@ -237,7 +244,8 @@ export default {
                 if (this.sets.includes(caption.set)) {
                   possibles.push(caption.text)
                 } else if (caption.tool === 'engage') {
-                  possibles.push(caption.text)
+                  const temp = eval("`" + caption.text + "`")
+                  possibles.push(temp)
                 }
               }
             })
