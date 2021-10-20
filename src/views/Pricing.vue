@@ -58,7 +58,7 @@ export default {
     coreFeatures: [
       {
         title: 'Live Chat Support',
-        text: 'We’re digitally, if not emotionally, available. Message us with your questions or for inspo to get you started (yes we’re up)',
+        text: "Our in-house copywriter (a real life person) is available to you via Live Chat! Whether you need inspo to get started or have questions ABOUT our questions, she'll help you get unstuck. She doesn't get out of bed (and into your pocket) for less than $47/month (diva alert!) but she's worth every dollar",
         icon: 'message.svg'
       },
       {

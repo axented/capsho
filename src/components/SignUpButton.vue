@@ -5,7 +5,7 @@
         <span class="text-5xl font-heading leading-normal">Register for our Free Webclass to see Capsho in action!</span>
       </div>
       <div class="pb-8">
-        <a href="https://www.capshounlocked.com/webinar-registration" target="_blank">
+        <a href="https://www.capshounlocked.com/webclass" target="_blank">
           <button class="font-body font-bold bg-primaryDark text-white py-4 px-4 rounded-full">
             Sign up for our free Webclass
           </button>

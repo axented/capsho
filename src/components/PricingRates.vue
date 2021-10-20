@@ -70,13 +70,13 @@ export default {
   data: () => ({
     platinumFeatures: [
       'Unlimited access to all our storytelling tools to generate captions you can schedule & post and emails you can schedule & send',
-      'Customer support via Live Chat',
+      "Live Chat support with our Copywriting Expert so you're never stuck",
       'Premium access to a private Facebook Group community'
     ],
     diamondFeatures: [
       'All of the Platinum Plan benefits',
       'Premium monthly access to a Social Media Action Calendar',
-      'Premium montly access to a trending Instagram Reels Inspiration Drop, with specific instructions on how to create them',
+      'Premium monthly access to a trending Instagram Reels Inspiration Drop, with specific instructions on how to create them',
       'Premium access to our Instagram Stories Strategy',
       'Premium access to our Social Media Graphics Swipe File',
       '1:1 Onboarding call'
