@@ -10,7 +10,7 @@
         <div class="flex flex-col w-full w-1/2 bg-white shadow rounded-2xl py-10 px-6 md:mr-4 mt-2 md:mt-0">
           <span class="font-bodyLexend flex pb-6">Platinum Plan</span>
           <div class="font-bodyLexend flex flex-row pb-6">
-            <span class="text-4xl pr-4">$67</span>
+            <span class="text-4xl pr-4">$47</span>
             <span>/month</span>
           </div>
           <div class="border-t-2 pb-4">
